@@ -4,9 +4,10 @@ import os
 from flask import Flask, request, jsonify
 from statsmodels.tsa.arima_model import ARIMAResults
 import pandas as pd
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 def load_model():
     return ARIMAResults.load('./model.pkl')
